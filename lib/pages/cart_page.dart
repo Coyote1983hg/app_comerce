@@ -11,19 +11,18 @@ class CartPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        content:  Text("Remove this item from your cart?"),
+        content: const Text("Remove this product from your cart?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child:  Text("Cancel"),
+            child: const Text("Cancel", style: TextStyle(color: Colors.black)),
           ),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
               context.read<Shop>().removeFromCart(product);
-             
             },
-            child: Text("Yes"),
+            child: const Text("Yes", style: TextStyle(color: Colors.black)),
           ),
         ],
       ),
@@ -50,7 +49,7 @@ class CartPage extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Cart Page"),
       ),
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.surfaceBright,
       body: Column(
         children: [
           Expanded(

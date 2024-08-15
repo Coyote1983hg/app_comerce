@@ -21,7 +21,7 @@ class MyDrawer extends StatelessWidget {
                 gradient: LinearGradient(
                   colors: [
                     Colors.black.withOpacity(0.7),
-                    Color.fromARGB(0, 32, 31, 31)
+                    Color.fromARGB(0, 61, 59, 59)
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomLeft,

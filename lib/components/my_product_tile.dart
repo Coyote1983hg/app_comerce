@@ -71,11 +71,10 @@ class MyProductTile extends StatelessWidget {
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 60),
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                
-                
                 children: [
                   Text('\$${product.price.toStringAsFixed(2)}'),
                   Container(
