@@ -74,6 +74,8 @@ class MyProductTile extends StatelessWidget {
               const SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                
+                
                 children: [
                   Text('\$${product.price.toStringAsFixed(2)}'),
                   Container(
@@ -82,7 +84,7 @@ class MyProductTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () => addToCart(context),
                       icon: const Icon(Icons.add),
                     ),
                   ),

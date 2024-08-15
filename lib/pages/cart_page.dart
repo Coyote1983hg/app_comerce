@@ -7,16 +7,23 @@ import 'package:provider/provider.dart';
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
-
   void removeItemFromCart(BuildContext context, Product product) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        content: const Text("Remove this item from your cart??"),
+        content:  Text("Remove this item from your cart?"),
         actions: [
-          MaterialButton(
+          TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child:  Text("Cancel"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              context.read<Shop>().removeFromCart(product);
+             
+            },
+            child: Text("Yes"),
           ),
         ],
       ),
@@ -27,7 +34,7 @@ class CartPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => const AlertDialog(
-        content: Text("User want to pay"),
+        content: Text("User wants to pay the product"),
       ),
     );
   }
@@ -43,7 +50,7 @@ class CartPage extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Cart Page"),
       ),
-      backgroundColor: Theme.of(context).colorScheme.surfaceBright,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
           Expanded(
@@ -52,23 +59,19 @@ class CartPage extends StatelessWidget {
                 : ListView.builder(
                     itemCount: cart.length,
                     itemBuilder: (context, index) {
-                      final item = [cart, index];
+                      final item = cart[index];
 
                       return ListTile(
                         title: Text(item.name),
-                        subtitle: Text(
-                          item.price.toStringAsFixed(2)),
-                        
+                        subtitle: Text(item.price.toStringAsFixed(2)),
                         trailing: IconButton(
                           icon: const Icon(Icons.remove),
-                          onPressed: () => removeItemFromCart(context,item),
+                          onPressed: () => removeItemFromCart(context, item),
                         ),
                       );
                     },
                   ),
           ),
-
-          
           Padding(
             padding: const EdgeInsets.all(50.0),
             child: MyButton(

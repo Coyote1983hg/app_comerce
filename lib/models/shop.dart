@@ -32,7 +32,7 @@ class Shop extends ChangeNotifier {
   List<Product> _cart = [];
 
   List<Product> get shop => _shop;
-  
+
   List<Product> get cart => _cart;
 
   void addToCart(Product item) {
@@ -40,7 +40,7 @@ class Shop extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeToCart(Product item) {
+  void removeFromCart(Product item) {
     _cart.remove(item);
     notifyListeners();
   }
